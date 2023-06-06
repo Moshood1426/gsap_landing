@@ -7,20 +7,20 @@ import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import SectionHeader from "../components/SectionHeader";
 import CustomCursor from "../CustomCursor";
+import "../styles/home.scss";
 
 const Home = () => {
   return (
     <>
       <CustomCursor />
-      
+
       <div className="main-container" id="main-container">
-        <About />
-        <Featured />
-        <Footer />
-        <Gallery />
-        <Header />
         <NavBar />
-        <SectionHeader />
+        <Header />
+        <Featured />
+        <About />
+        <Gallery />
+        <Footer />
       </div>
     </>
   );
