@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.scss";
 import SectionHeader from "../SectionHeader";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitText from "../../utils/Split3.min";
+
 const About = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  useEffect(() => {
+    const split = new SplitText("#headline", { type: "lines" });
+
+    gsap.to(split.lines, {
+      duration: 1,
+      y: -20,
+      opacity: 1,
+      stagger: 0.1,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: "#headline",
+        start: "top 80%",
+        toggleActions: "restart none none reverse",
+      },
+      // onComplete: () => split.revert(),
+    });
+  }, []);
+
   return (
     <section className="about-section" data-scroll-section>
       <SectionHeader title={"about"} />
 
       <p id="headline">
-        Lorem Eius rerum voluptas labore a ea dolores qui commodi. Unde placeat
-        doloremque consequuntur numquam nobis esse? Hic dolorum maxime alias.
-        Ipsum nobis veniam laborum facere nihil, minus quibusdam magnam iure
-        eveniet delectus et tenetur cum, voluptas inventore, laudantium tempora.
-        Unde qui rem quae, id deleniti fugiat!
+        Flirty Flowers is a blog about flowers and the floral designers who make
+        them into art. Creativity and the art of ‘making’ require dialogue. The
+        full purpose of the Flirty Flowers blog is to encourage and inspire. We
+        value art, we value insight, and we value opinion.
       </p>
     </section>
   );

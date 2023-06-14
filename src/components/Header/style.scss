@@ -1,7 +1,6 @@
 .header-container {
   position: relative;
 
-
   .header-menu {
     position: absolute;
     left: 0;
@@ -19,10 +18,11 @@
   }
 
   #header-text {
+    margin: 0;
     font-size: 20vw;
     text-transform: uppercase;
     text-align: center;
-
+    transform: translate(0, 500px);
     font-family: "Bai Jamjuree", sans-serif;
     font-weight: 600;
   }
