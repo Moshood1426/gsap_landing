@@ -11,26 +11,30 @@ const About = () => {
   useEffect(() => {
     const split = new SplitText("#headline", { type: "lines" });
 
-    gsap.to(split.lines, {
-      duration: 1,
-      y: -20,
-      opacity: 1,
-      stagger: 0.1,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: "#headline",
-        start: "top 80%",
-        toggleActions: "restart none none reverse",
-      },
-      // onComplete: () => split.revert(),
-    });
+    gsap.fromTo(
+      split.lines,
+      { opacity: 0 },
+      {
+        duration: 1,
+        y: -30,
+        opacity: 1,
+        stagger: 0.1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: "#headline",
+          start: "top 80%",
+          toggleActions: "restart none none reverse",
+        },
+        // onComplete: () => split.revert(),
+      }
+    );
   }, []);
 
   return (
     <section className="about-section" data-scroll-section>
       <SectionHeader title={"about"} />
 
-      <p id="headline">
+      <p id="headline" data-scroll>
         Flirty Flowers is a blog about flowers and the floral designers who make
         them into art. Creativity and the art of ‘making’ require dialogue. The
         full purpose of the Flirty Flowers blog is to encourage and inspire. We
